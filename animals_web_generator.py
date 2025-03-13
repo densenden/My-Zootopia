@@ -41,7 +41,6 @@ def animal_reader(animal):
     return (name, diet, location, animal_type, distinctive_feature, temperament, training,
             average_litter_size, common_name, slogan, group, color, skin_type, lifespan)
 
-
 def string_creator(data):
     """
     Create an HTML string representation of the animal data.
@@ -95,7 +94,6 @@ def string_creator(data):
         )
     return animals_string
 
-
 def html_replacer(animals_data):
     """
     Replace the placeholder in the HTML template with the animal data.
@@ -111,7 +109,6 @@ def html_replacer(animals_data):
     with open("animals.html", "w") as new_file:
         new_file.write(new_content)
 
-
 def main():
     """
     Main function to load data, generate HTML content, and save it to a file.
@@ -119,7 +116,6 @@ def main():
     file_path = "animals_data.json"
     animals_data = load_data(file_path)
     html_replacer(animals_data)
-
 
 if __name__ == "__main__":
     main()
