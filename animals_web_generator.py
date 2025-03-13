@@ -8,8 +8,8 @@ def animal_reader(animal):
     name = animal["name"]
     location = ", ".join(animal["locations"])
     characteristics = animal["characteristics"]
-    diet = characteristics.get("diet", "Unknown")
-    animal_type = characteristics.get("type", "Unknown")
+    diet = characteristics.get("diet")
+    animal_type = characteristics.get("type")
     return name, diet, location, animal_type
 
 def string_creator(data):
@@ -21,9 +21,14 @@ def string_creator(data):
             f'  <div class="card__title">{name}</div>\n'
             f'  <p class="card__text">\n'
             f'    <ul>\n'
-            f'      <li>Diet: {diet}</li>\n'
-            f'      <li>Location: {location}</li>\n'
-            f'      <li>Type: {animal_type}</li>\n'
+        )
+        if diet:
+            animals_string += f'      <li>Diet: {diet}</li>\n'
+        if location:
+            animals_string += f'      <li>Location: {location}</li>\n'
+        if animal_type:
+            animals_string += f'      <li>Type: {animal_type}</li>\n'
+        animals_string += (
             f'    </ul>\n'
             f'  </p>\n'
             f'</li>\n'
