@@ -10,12 +10,25 @@ def animal_reader(animal):
     characteristics = animal["characteristics"]
     diet = characteristics.get("diet")
     animal_type = characteristics.get("type")
-    return name, diet, location, animal_type
+    distinctive_feature = characteristics.get("distinctive_feature")
+    temperament = characteristics.get("temperament")
+    training = characteristics.get("training")
+    average_litter_size = characteristics.get("average_litter_size")
+    common_name = characteristics.get("common_name")
+    slogan = characteristics.get("slogan")
+    group = characteristics.get("group")
+    color = characteristics.get("color")
+    skin_type = characteristics.get("skin_type")
+    lifespan = characteristics.get("lifespan")
+    return (name, diet, location, animal_type, distinctive_feature, temperament, training,
+            average_litter_size, common_name, slogan, group, color, skin_type, lifespan)
+
 
 def string_creator(data):
     animals_string = ''
     for animal in data:
-        name, diet, location, animal_type = animal_reader(animal)
+        (name, diet, location, animal_type, distinctive_feature, temperament, training,
+         average_litter_size, common_name, slogan, group, color, skin_type, lifespan) = animal_reader(animal)
         animals_string += (
             f'<li class="cards__item">\n'
             f'  <div class="card__title">{name}</div>\n'
@@ -23,17 +36,38 @@ def string_creator(data):
             f'    <ul>\n'
         )
         if diet:
-            animals_string += f'      <li>Diet: {diet}</li>\n'
+            animals_string += f'      <li><strong>Diet</strong> {diet}</li>\n'
         if location:
-            animals_string += f'      <li>Location: {location}</li>\n'
+            animals_string += f'      <li><strong>Location</strong> {location}</li>\n'
         if animal_type:
-            animals_string += f'      <li>Type: {animal_type}</li>\n'
+            animals_string += f'      <li><strong>Type</strong> {animal_type}</li>\n'
+        if distinctive_feature:
+            animals_string += f'      <li><strong>Distinctive Feature</strong> {distinctive_feature}</li>\n'
+        if temperament:
+            animals_string += f'      <li><strong>Temperament</strong> {temperament}</li>\n'
+        if training:
+            animals_string += f'      <li><strong>Training</strong> {training}</li>\n'
+        if average_litter_size:
+            animals_string += f'      <li><strong>Average Litter Size</strong> {average_litter_size}</li>\n'
+        if common_name:
+            animals_string += f'      <li><strong>Common Name</strong> {common_name}</li>\n'
+        if slogan:
+            animals_string += f'      <li><strong>Slogan</strong> {slogan}</li>\n'
+        if group:
+            animals_string += f'      <li><strong>Group</strong> {group}</li>\n'
+        if color:
+            animals_string += f'      <li><strong>Color</strong> {color}</li>\n'
+        if skin_type:
+            animals_string += f'      <li><strong>Skin Type</strong> {skin_type}</li>\n'
+        if lifespan:
+            animals_string += f'      <li><strong>Lifespan</strong> {lifespan}</li>\n'
         animals_string += (
             f'    </ul>\n'
             f'  </p>\n'
             f'</li>\n'
         )
     return animals_string
+
 
 def html_replacer(animals_data):
     with open("animals_templates.html", "r") as html_object:
