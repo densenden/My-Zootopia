@@ -1,10 +1,28 @@
 import json
 
 def load_data(file_path):
+    """
+    Load data from a JSON file.
+
+    Args:
+        file_path (str): The path to the JSON file.
+
+    Returns:
+        list: A list of dictionaries containing animal data.
+    """
     with open(file_path, "r") as handle:
         return json.load(handle)
 
 def animal_reader(animal):
+    """
+    Extract relevant information from an animal dictionary.
+
+    Args:
+        animal (dict): A dictionary containing animal information.
+
+    Returns:
+        tuple: A tuple containing the extracted animal information.
+    """
     name = animal["name"]
     location = ", ".join(animal["locations"])
     characteristics = animal["characteristics"]
@@ -25,6 +43,15 @@ def animal_reader(animal):
 
 
 def string_creator(data):
+    """
+    Create an HTML string representation of the animal data.
+
+    Args:
+        data (list): A list of dictionaries containing animal information.
+
+    Returns:
+        str: An HTML string representation of the animal data.
+    """
     animals_string = ''
     for animal in data:
         (name, diet, location, animal_type, distinctive_feature, temperament, training,
@@ -70,6 +97,12 @@ def string_creator(data):
 
 
 def html_replacer(animals_data):
+    """
+    Replace the placeholder in the HTML template with the animal data.
+
+    Args:
+        animals_data (list): A list of dictionaries containing animal information.
+    """
     with open("animals_templates.html", "r") as html_object:
         placeholder = html_object.read()
 
@@ -78,10 +111,15 @@ def html_replacer(animals_data):
     with open("animals.html", "w") as new_file:
         new_file.write(new_content)
 
+
 def main():
+    """
+    Main function to load data, generate HTML content, and save it to a file.
+    """
     file_path = "animals_data.json"
     animals_data = load_data(file_path)
     html_replacer(animals_data)
+
 
 if __name__ == "__main__":
     main()
