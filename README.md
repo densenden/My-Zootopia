@@ -23,7 +23,7 @@ The Animal Information Web Generator is a Python-based application that fetches 
 
 1. Clone the repository:
     ```sh
-    git clone git@github.com:densenden/My-Zootopia.git
+    git clone git@github.com:densenden/My-Zootopia-API.git
     cd animal-info-web-generator
     ```
 
