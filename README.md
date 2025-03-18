@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Animal Information Web Generator is a Python-based application that fetches animal data from an API, processes it, and generates a well-formatted HTML page displaying the information. This project is designed to help users easily visualize and access detailed information about various animals.
+The Animal Information Web Generator is a Python-based application that fetches animal data from an File, processes it, and generates a well-formatted HTML page displaying the information. This project is designed to help users easily visualize and access detailed information about various animals.
 
 ## Features
 
